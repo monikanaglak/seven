@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/media.css" />
+    <script
+      src="https://kit.fontawesome.com/30340057e5.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>Les petits plats</title>
+  </head>
+  <body>
+    <main>
+      <header>
+        <img src="./assets/logo.png" alt="logo" class="logo" />
+      </header>
+      <div class="search_bar_loop">
+        <input
+          type="text"
+          id="search"
+          placeholder="Rechercher un ingrédient, appareil, usentile ou une recette"
+        />
+        <img class="lupa" src="css/img/search.svg" alt="loopimage" />
+      </div>
+      <div class="list_ingrediens_chosen"></div>
+      <div class="nav_container" id="choice">
+        <div id="ingredients" class="_btn" type="button">
+          <input type="text" placeholder="Ingredients..." class="looking" />
+          <p class="text ingredredients">Ingredients</p>
+          <i class="fas fa-chevron-down moving" aria-hidden="true"></i>
+          <div
+            class="dropdown-menu"
+            id="zero"
+            aria-labelledby="dropdownMenu1"
+          ></div>
+        </div>
+
+        <div id="appareil" class="_btn" type="button">
+          <input type="text" placeholder="Appareil..." class="looking-app" />
+          <p class="text appareil">Appareil</p>
+          <i class="fas fa-chevron-down moving" aria-hidden="true"></i>
+          <div
+            class="dropdown-menu"
+            id="test"
+            aria-labelledby="dropdownMenu2"
+          ></div>
+        </div>
+
+        <div id="ustensiles" class="_btn" type="button">
+          <input type="text" placeholder="Ustensiles.." class="looking-us" />
+          <p class="text ustensiles">Ustensiles</p>
+          <i class="fas fa-chevron-down moving" aria-hidden="true"></i>
+          <div
+            class="dropdown-menu"
+            id="testdwa"
+            aria-labelledby="dropdownMenu3"
+          ></div>
+        </div>
+      </div>
+      <div id="container"></div>
+    </main>
+
+    <script src="app.js" type="module"></script>
+    <script src="components/clickButtons.js" type="module"></script>
+
+    <script src="/filter_by_tag/appareil.js" type="module"></script>
+    <script src="/filter_by_tag/ingridients.js" type="module"></script>
+    <script src="/filter_by_tag/usentiles.js" type="module"></script>
+    <script src="utils/cut.js" type="module"></script>
+    <script src="utils/actualisation_recettes.js" type="module"></script>
+    <script src="/components/search_input_bar.js" type="module"></script>
+  </body>
+</html>

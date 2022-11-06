@@ -38,37 +38,22 @@ export function searching_with_input(e) {
     recette_affiche_search.forEach((r) => {
       id_recette_affiche_search.push(parseInt(r.getAttribute("id")));
     });
-
-    for (let i = 0; i < data.length; i++) {
-      if(id_recette_affiche_search.includes(data[i].id)){
-      if (data[i].name.includes(word_found)) {
-        recettes_old_version.push(data[i]);
-  
-      }
-      if (data[i].description.includes(word_found)) {
-        recettes_old_version.push(data[i]);
-      }
-
-      let ingredients_all = data[i].ingredients;
-      for (let j = 0; j < ingredients_all.length; j++) {
-        let ingredient_all = ingredients_all[j];
-
-        if (ingredients_all[j].ingredient.toLowerCase().includes(word_found)) {
-          recettes_old_version.push(data[i]);
+    data.map((dat) => {
+      if (id_recette_affiche_search.includes(dat.id)) {
+        if (dat.name.toLowerCase().includes(word_found)) {
+          recettes_old_version.push(dat);
+        }
+        dat.ingredients.filter((i) => {
+          if (i.ingredient.toLowerCase().includes(word_found)) {
+            recettes_old_version.push(dat);
+          }
+        });
+        if (dat.description.toLowerCase().includes(word_found)) {
+          recettes_old_version.push(dat);
         }
       }
-      if (data[i].appliance.includes(word_found)) {
-        recettes_old_version.push(data[i]);
-      }
-
-      let all_ustensils = data[i].ustensils;
-      for (let j = 0; j < all_ustensils; j++) {
-        if (all_ustensils[j].includes(word_found)) {
-          recettes_old_version.push(data[i]);
-        }
-      }
-    }
-  }
+    });
+    
     //if there is no recette found, message will be shown
     if (recettes_old_version.length === 0) {
       const container = document.getElementById("container");
